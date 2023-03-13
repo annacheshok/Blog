@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+.search {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  flex: 0 1 78.75%;
+  height: 100%;
+  padding: 0 32px;
+  color: #313037;
+  background-color: #EAEAEB;
+  background: url(../../images/Search.svg) right 32px bottom 35px/24px no-repeat;
+}
+.search:focus, .search:hover {
+  background: #EAEAEB;
+}
+.search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  background: url(../../images/Cancel.svg);
+  cursor: pointer;
+}/*# sourceMappingURL=Search.module.css.map */

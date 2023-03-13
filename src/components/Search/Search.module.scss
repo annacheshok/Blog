@@ -1,0 +1,25 @@
+@import "../../styles/index.module.scss";
+
+.search {
+    @include font-size(16px, 24px, 400);
+
+    flex: 0 1 calc(1512 / 1920 * 100%);
+    height: 100%;
+    padding: 0 32px;
+    color: $system-secondary-color;
+    background-color: $secondary-extralight-color;
+    background: url(../../images/Search.svg) right 32px bottom 35px / 24px no-repeat;
+
+    &:focus, &:hover {
+        background: $secondary-extralight-color;
+    }
+
+    &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+
+        @include h-w(24px, 24px);
+
+        background: url(../../images/Cancel.svg);
+        cursor: pointer;
+    }
+}
