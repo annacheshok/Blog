@@ -1,0 +1,28 @@
+// system colors
+$system-primary-color: #6C1BDB;
+$system-primary2-color: #912EF2;
+$system-secondary-color: #313037;
+
+// secondary colors
+$secondary-medium-color: #98979B;
+$secondary-light-color: #C1C1C3;
+$secondary-extralight-color: #EAEAEB;
+
+// contextual colors
+$contextual-error-color: #FD3419;
+$contextual-white-color: #fff;
+$contextual-gray-color: #F3F3F3;
+
+// mixin with font-size
+@mixin font-size($font-size, $line-height, $font-weight) {
+    font-family: 'Inter', sans-serif;
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $font-weight;
+}
+
+// mixin with height-width
+@mixin h-w($height, $width) {
+    height: $height;
+    width: $width;
+}
