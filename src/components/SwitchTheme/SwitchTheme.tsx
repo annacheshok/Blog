@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
 import { changeTheme } from '../../redux/slices/themeSlice';
 import styles from './SwitchTheme.module.scss';
