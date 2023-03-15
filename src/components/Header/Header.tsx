@@ -9,7 +9,7 @@ const Header = () => {
     const handleBurgerClick = () => {
         setOpenMenu(!isOpenMenu);
     };
-
+    
     return (
         <div className={isOpenMenu ? `${styles.container} ${styles.active}` : `${styles.container}`}>
             <img src={logo} alt='image' className={styles.logo} />
