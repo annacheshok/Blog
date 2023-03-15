@@ -1,0 +1,34 @@
+.switch {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  -webkit-appearance: none;
+  outline: none;
+  background-color: #C1C1C3;
+  border-radius: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.switch:before {
+  height: 16px;
+  width: 16px;
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.5s;
+}
+.switch:checked {
+  background-color: #6C1BDB;
+}
+.switch:checked::before {
+  left: 14px;
+}
+.switch:checked:hover {
+  background-color: #912EF2;
+}
+.switch:hover {
+  background-color: #98979B;
+}/*# sourceMappingURL=SwitchTheme.module.css.map */

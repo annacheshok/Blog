@@ -1,0 +1,37 @@
+.container {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  flex: 0 0 auto;
+  color: #C1C1C3;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerDark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+}
+
+.themeTitle {
+  margin: 0 20px 0;
+}
+
+@media (max-width: 1500px) {
+  .container {
+    padding: 0 35px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}/*# sourceMappingURL=Footer.module.css.map */
