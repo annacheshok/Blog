@@ -4,6 +4,7 @@ import { changeTheme } from '../../redux/slices/themeSlice';
 import styles from './SwitchTheme.module.scss';
 
 const SwitchTheme = () => {
+    const theme = useAppSelector (state => state.theme.value);
     const dispatch = useAppDispatch();
 
     const handleChangeTheme = () => {
@@ -11,7 +12,7 @@ const SwitchTheme = () => {
     };
 
     return (
-            <input type='checkbox' className={styles.switch} onChange={handleChangeTheme} />
+            <input type='checkbox' className={styles.switch} onChange={handleChangeTheme} checked={theme === 'light' ? false : true} />
     );
 };
 
