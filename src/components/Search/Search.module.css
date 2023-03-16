@@ -19,4 +19,8 @@
   width: 24px;
   background: url(../../images/Cancel.svg);
   cursor: pointer;
+}
+
+.searchDark {
+  background-image: url(../../images/SearchDark.svg);
 }/*# sourceMappingURL=Search.module.css.map */

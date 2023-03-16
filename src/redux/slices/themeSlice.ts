@@ -15,7 +15,7 @@ export const themeSlice = createSlice({
         changeTheme: (state) => {
             if (state.value === 'light') state.value = 'dark'
             else state.value = 'light'
-        }
+        },
     },
 });
 
