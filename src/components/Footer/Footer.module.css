@@ -5,9 +5,10 @@
   font-weight: 400;
   flex: 0 0 auto;
   color: #C1C1C3;
+  border-top: 1px solid rgba(49, 48, 55, 0.1);
   width: 100%;
   margin: 0 auto;
-  padding: 0 400px;
+  padding: 34px 400px;
   display: flex;
   justify-content: space-between;
 }
@@ -23,15 +24,24 @@
 
 .themeTitle {
   margin: 0 20px 0;
+  width: 88px;
 }
 
 @media (max-width: 1500px) {
   .container {
-    padding: 0 35px;
+    padding: 34px 35px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .container {
-    padding: 0 24px;
+    padding: 32px 90px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .theme {
+    margin: 24px auto 0;
+  }
+  .themeTitle {
+    margin: 0 20px 0 0;
   }
 }/*# sourceMappingURL=Footer.module.css.map */
