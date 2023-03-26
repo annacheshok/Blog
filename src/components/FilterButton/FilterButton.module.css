@@ -1,0 +1,17 @@
+.container {
+  padding: 16px 40px;
+  text-transform: capitalize;
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.container:not(:last-child) {
+  margin-right: 16px;
+}
+
+.containerActive {
+  background-color: #6C1BDB;
+  color: #fff;
+}/*# sourceMappingURL=FilterButton.module.css.map */

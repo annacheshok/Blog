@@ -1,0 +1,7 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    margin: 40px 0 0;
+    display: flex;
+    border-bottom: 1px solid $secondary-extralight-color;
+}

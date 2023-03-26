@@ -1,0 +1,11 @@
+.container {
+  margin: 72px -16px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: center;
+  }
+}/*# sourceMappingURL=Posts.module.css.map */

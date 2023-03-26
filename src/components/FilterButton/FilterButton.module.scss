@@ -1,0 +1,16 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    padding: 16px 40px;
+    text-transform: capitalize;
+    border-radius: 4px;
+    @include font-size(16px, 24px, 500);
+    &:not(:last-child) {
+        margin-right: 16px;
+    }
+}
+
+.containerActive {
+    background-color: $system-primary-color;
+    color: $contextual-white-color;
+}

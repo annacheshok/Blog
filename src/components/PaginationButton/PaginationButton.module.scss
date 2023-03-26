@@ -1,0 +1,33 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    @include font-size(16px, 24px, 600);
+
+    background-color: transparent;
+    color: #313037;
+    margin: 0 16px;
+
+    &:last-child {
+        margin: 0 0 0 16px;
+    }
+
+    &:first-child {
+        margin: 0 16px 0 0;
+    }
+
+    &:hover {
+        color: $system-primary-color;
+    }
+}
+
+.containerActive {
+    color: $system-primary-color;
+}
+
+.containerDark {
+    color: $contextual-white-color;
+
+    &.containerActive {
+        color: $system-primary-color;
+    }
+}

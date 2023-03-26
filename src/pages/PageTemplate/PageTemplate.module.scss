@@ -1,0 +1,40 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    max-width: 1150px;
+    padding: 72px 15px 40px;
+    margin: 0 auto;
+    flex: 1 0 auto;
+}
+
+.title {
+    @include font-size(56px, 80px, 700);
+
+    color: $system-secondary-color;
+    text-align: left;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
+}
+
+.titleDark {
+    color: $contextual-white-color;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 72px 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 72px 24px;
+    }
+
+    .title {
+        font-size: 32px;
+        line-height: 48px;
+    }
+}

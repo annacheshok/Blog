@@ -1,0 +1,73 @@
+.container {
+  max-width: 1120px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ellipsis {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.arrow {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #313037;
+  background-color: transparent;
+}
+
+.arrowNext {
+  padding-right: 32px;
+  top: 0;
+  right: 0;
+}
+.arrowNext::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -8px;
+  height: 24px;
+  width: 24px;
+  background: url(../../images/Arrow.svg) left 0 bottom 0/24px no-repeat;
+  transform: rotate(180deg);
+}
+
+.arrowPrev {
+  top: 0;
+  left: 0;
+  padding-left: 32px;
+}
+.arrowPrev::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -8px;
+  height: 24px;
+  width: 24px;
+  background: url(../../images/Arrow.svg) left 0 bottom 0/24px no-repeat;
+}
+
+.arrowPrev:hover, .arrowNext:hover {
+  color: #6C1BDB;
+}
+.arrowPrev:hover::after, .arrowNext:hover::after {
+  background-image: url(../../images/ArrowHover.svg);
+}
+
+.arrowDisabled {
+  color: #C1C1C3;
+}
+.arrowDisabled::after {
+  background-image: url(../../images/ArrowDisabled.svg);
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: center;
+  }
+}/*# sourceMappingURL=Pagination.module.css.map */

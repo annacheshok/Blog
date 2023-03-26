@@ -1,0 +1,75 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    max-width: 1120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ellipsis {
+    @include font-size(16px, 24px, 600);
+}
+
+.arrow {
+    position: relative;
+
+    @include font-size(16px, 24px, 600);
+
+    color: #313037;
+    background-color: transparent;
+}
+
+.arrowNext {
+    padding-right: 32px;
+    top: 0;
+    right: 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -8px;
+        height: 24px;
+        width: 24px;
+        background: url(../../images/Arrow.svg) left 0 bottom 0 / 24px no-repeat;
+        transform: rotate(180deg);
+    }
+}
+
+.arrowPrev {
+    top: 0;
+    left: 0;
+    padding-left: 32px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -8px;
+        height: 24px;
+        width: 24px;
+        background: url(../../images/Arrow.svg) left 0 bottom 0 / 24px no-repeat;
+    }
+}
+
+.arrowPrev:hover, .arrowNext:hover {
+    color: $system-primary-color;
+
+    &::after {
+        background-image: url(../../images/ArrowHover.svg);
+    }
+}
+
+.arrowDisabled {
+    color: $secondary-light-color;
+
+    &::after {
+        background-image: url(../../images/ArrowDisabled.svg);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        justify-content: center;
+    }
+}

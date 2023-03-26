@@ -1,0 +1,33 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    @include font-size(16px, 24px, 600);
+
+    padding: 0 40px 24px;
+    color: #313037;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
+
+    &:not(:last-child) {
+        margin: 0 40px 0 0;
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: $system-primary-color;
+    }
+}
+
+.containerActive {
+    border-bottom: 2px solid #313037;
+
+    &.containerDark {
+        border-bottom: 2px solid $contextual-white-color;
+    }
+}
+
+.containerDark {
+    color: $contextual-white-color;
+}

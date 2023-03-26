@@ -78,16 +78,17 @@ h6 {
   font-size: inherit;
 }
 
-button, a {
+button,
+a {
   cursor: pointer;
 }
 
-.wrapper {
-  height: 100%;
-}
 
-.content {
-  height: 100%;
+.wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.wrapperDark {
+  background-color: #313037;
 }
