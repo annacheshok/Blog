@@ -54,7 +54,7 @@
 .textTitle {
     @include font-size(18px, 28px, 600);
 
-    color: #313037;
+    color: $system-secondary-color;
 }
 
 .containerDark {

@@ -13,7 +13,10 @@ const Post = (props: IPost) => {
     const theme = useAppSelector(store => store.theme.value);
 
     return (
-        <article className={theme === 'light' ? styles.container : `${styles.container} ${styles.containerDark}`}>
+        <article className={`
+        ${styles.container}
+        ${theme === 'dark' ? styles.containerDark : null}
+        `}>
             <div className={styles.image}>
                 <img src={props.imageUrl} alt='image' />
             </div>

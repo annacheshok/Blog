@@ -61,9 +61,31 @@
 
 .arrowDisabled {
   color: #C1C1C3;
+  pointer-events: none;
 }
 .arrowDisabled::after {
   background-image: url(../../images/ArrowDisabled.svg);
+}
+
+.containerDark .arrow {
+  color: #fff;
+}
+.containerDark .arrow::after {
+  background-image: url(../../images/ArrowDark.svg);
+}
+.containerDark span {
+  color: #fff;
+}
+.containerDark .arrowDisabled {
+  color: #98979B;
+  pointer-events: none;
+}
+.containerDark .arrowDisabled::after {
+  background-image: url(../../images/ArrowDisabled.svg);
+}
+
+.containerDisabled {
+  display: none;
 }
 
 @media (max-width: 768px) {

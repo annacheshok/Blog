@@ -9,21 +9,17 @@ interface ITab {
 
 const Tab = ({title}: ITab ) => {
     const theme = useAppSelector(store => store.theme.value);
-    const { category, page, count } = useAppSelector(store => store.posts);
+    const { category} = useAppSelector(store => store.posts);
     const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        dispatch(getAllPostsCount({ category: category }))
-        dispatch(getAllPosts({ category: category }))
-    }, [category]);
     
     const setActive = () => {
         dispatch(changeCategory(title));
-    }
+    };
 
     return (
         <div className={`
-        ${category.toLowerCase() === title.toLowerCase() ? `${styles.container} ${styles.containerActive}` : styles.container}
+        ${styles.container}
+        ${category.toLowerCase() === title.toLowerCase() ? styles.containerActive : null}
         ${theme === 'light' ? '' : styles.containerDark}
         `}
         onClick = {setActive}>{title}</div>

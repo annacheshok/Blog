@@ -1,0 +1,16 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    @include font-size(16px, 24px, 500);
+
+    text-align: left;
+    color: $system-secondary-color;
+    padding: 16px 20px;
+    &:not(:last-child) {
+        border-bottom: 1px solid $secondary-light-color;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

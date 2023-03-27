@@ -18,7 +18,10 @@ export interface IPosts {
 
 export interface IGetPosts {
     category: string;
-    page?: number;
+    page: number;
+    count: number;
     title?: string;
     date?: string;
+    filter?: string;
+    sort?: string;
 }

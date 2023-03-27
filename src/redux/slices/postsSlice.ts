@@ -4,13 +4,15 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { api } from "../../api";
 import { IPost } from "../../types";
-import { findFirstPostOfPage, findCountOfPages } from '../../utils';
+import { findFirstPostOfPage, findCountOfPages, getDateForFilter } from '../../utils';
 
 interface IInitialState {
     posts: IPost[],
     category: string,
     page: number,
     count: number,
+    filter: string,
+    sort: string,
 }
 
 const initialState: IInitialState = {
@@ -18,26 +20,32 @@ const initialState: IInitialState = {
     category: "articles",
     page: 1,
     count: 0,
+    filter: '',
+    sort: 'A-Z'
 }
 
 export const getAllPosts = createAsyncThunk(
     "posts/getAllPosts",
-    async ({ category, page, title, date }: IGetPosts, thunkApi) => {
+    async ({ category, page, count, filter, sort}: IGetPosts, thunkApi) => {
+        console.log(sort)
         let url = `/${category === "news" ? "blogs" : category}?`;
         try {
             if (page) {
-                url += `_start=${findFirstPostOfPage(page)}`;
+                url += `_start=${findFirstPostOfPage(page, count)}&`;
             }
-            if (title) {
-                console.log('fhfh')
-                url += `title_contains=${title}`;
+            
+            if (filter) {
+                url += `publishedAt_gte=${getDateForFilter(filter)}&`;
             }
-            if (date) {
-                url += `publishedAt_gte=${date}`;
+            if (sort) {
+                if (sort === 'A-Z') url += `_sort=title&`
+                else if (sort === 'Z-A') url += `_sort=summary&`;
             }
-            url += `&_limit=12`;
+            url += `_limit=12`;
+
             const response = await api.get(url);
-            return response.data
+            return response.data;
+
         } catch (error: any) {
             return thunkApi.rejectWithValue({ errorMessage: error.message });
         }
@@ -46,13 +54,13 @@ export const getAllPosts = createAsyncThunk(
 
 export const getAllPostsCount = createAsyncThunk(
     "posts/getAllPostsCount",
-    async ({ category, title, date }: IGetPosts, thunkApi) => {
+    async ({ category, title, filter }: IGetPosts, thunkApi) => {
         let url = `/${category === "news" ? "blogs" : category}/count?`;
         if (title) {
             url += `title_contains=${title}`;
         }
-        if (date) {
-            url += `publishedAt_gte=${date}`;
+        if (filter) {
+            url += `publishedAt_gte=${getDateForFilter(filter)}`;
         }
         try {
             const response = await api.get(url);
@@ -73,6 +81,12 @@ export const postsSlice = createSlice({
         changePage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
+        changeFilter: (state, action: PayloadAction<any>) => {
+            state.filter = action.payload;
+        },
+        changeSort: (state, action: PayloadAction<any>) => {
+            state.sort = action.payload;
+        },
     },
     extraReducers:
         (builder) => {
@@ -85,7 +99,7 @@ export const postsSlice = createSlice({
         }
 })
 
-export const { changeCategory, changePage } = postsSlice.actions;
+export const { changeCategory, changePage, changeFilter, changeSort } = postsSlice.actions;
 
 
 const postReducer = postsSlice.reducer;

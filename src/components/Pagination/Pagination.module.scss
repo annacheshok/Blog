@@ -62,10 +62,38 @@
 
 .arrowDisabled {
     color: $secondary-light-color;
+    pointer-events: none;
 
     &::after {
         background-image: url(../../images/ArrowDisabled.svg);
     }
+}
+
+.containerDark {
+    .arrow {
+        color: $contextual-white-color;
+
+        &::after {
+            background-image: url(../../images/ArrowDark.svg);
+        }
+    }
+
+    span {
+        color: $contextual-white-color;
+    }
+
+    .arrowDisabled {
+    color: $secondary-medium-color;
+    pointer-events: none;
+
+    &::after {
+        background-image: url(../../images/ArrowDisabled.svg);
+    }
+}
+}
+
+.containerDisabled {
+    display: none;
 }
 
 @media (max-width: 768px) {
