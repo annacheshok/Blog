@@ -7,7 +7,10 @@ const Footer = () => {
     const theme = useAppSelector(state=> state.theme.value);
 
     return (
-        <div className={theme === 'light' ? `${styles.container}` : `${styles.container} ${styles.containerDark}`}>
+        <div className={`
+        ${styles.container}
+        ${theme === 'dark' ? styles.containerDark : null}
+        `}>
             <p className={styles.copyright}>&copy;2023 Blogolog</p>
             <div className={styles.theme}>
                 <p className={styles.themeTitle}>Dark theme</p>

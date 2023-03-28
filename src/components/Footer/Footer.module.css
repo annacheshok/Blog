@@ -3,12 +3,11 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  flex: 0 0 auto;
   color: #C1C1C3;
   border-top: 1px solid rgba(49, 48, 55, 0.1);
   width: 100%;
   margin: 0 auto;
-  padding: 34px 400px;
+  padding: 34px 390px;
   display: flex;
   justify-content: space-between;
 }
