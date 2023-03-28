@@ -84,10 +84,10 @@
             left: 24px;
         }
 
-        &.active {
+        &.containerActive {
             height: 100vh;
             flex-direction: column;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             z-index: 100;
@@ -169,7 +169,7 @@
                 background: url(../../images/SearchDark.svg) right 24px bottom 30px / 24px no-repeat;
             }
 
-            &.active {
+            &.containerActive {
                 .burger {
                     background: url(../../images/CancelDark.svg);
                 }

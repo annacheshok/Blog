@@ -85,8 +85,7 @@ a {
 
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
+background-color: #F3F3F3;
 }
 
 .wrapperDark {

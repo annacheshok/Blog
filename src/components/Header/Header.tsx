@@ -16,8 +16,9 @@ const Header = () => {
     
     return (
         <div className={`
-        ${isOpenMenu ? `${styles.container} ${styles.active}` : styles.container}
-        ${theme === 'light' ? '' : styles.containerDark}
+        ${styles.container}
+        ${isOpenMenu ? styles.containerActive : null}
+        ${theme === 'dark' ? styles.containerDark : null }
         `
         }>
             <img src={logo} alt='image' className={styles.logo} />
