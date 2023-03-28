@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppDispatch } from '../../redux/hook';
+import { useAppDispatch, useAppSelector } from '../../redux/hook';
 import { changeFilter, changeSort } from '../../redux/slices/postsSlice';
 import styles from './Option.module.scss';
 
@@ -11,6 +11,7 @@ interface IOption {
 }
 
 const Option = ({ optionTitle, selectTitle, isActiveSelect, setActiveSelect }: IOption) => {
+    const theme = useAppSelector(store => store.theme.value);
     const dispatch = useAppDispatch();
 
     const handleClickButton = () => {
@@ -25,7 +26,10 @@ const Option = ({ optionTitle, selectTitle, isActiveSelect, setActiveSelect }: I
     }
 
     return (
-    <div className = { styles.container } onClick={handleClickButton}> { optionTitle }</div>
+    <div className = {`
+    ${styles.container }
+    ${theme === 'dark' ? styles.containerDark : null }
+    `} onClick={handleClickButton}> { optionTitle }</div>
     );
 };
 

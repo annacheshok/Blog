@@ -30,6 +30,11 @@
   display: none;
 }
 
+.containerDark .activeOption {
+  color: #fff;
+  background: url(../../images/ArrowSelectActiveDark.svg) right 8px bottom 16px/24px no-repeat, #45444B;
+}
+
 .containerActive .activeOption {
   background: url(../../images/ArrowSelectActive.svg) right 8px bottom 16px/24px no-repeat, #fff;
 }
@@ -42,6 +47,13 @@
   border-radius: 4px;
   width: 100%;
   display: block;
+}
+.containerActive.containerDark .activeOption {
+  color: #fff;
+  background: url(../../images/ArrowSelectActiveDark.svg) right 8px bottom 16px/24px no-repeat, #45444B;
+}
+.containerActive.containerDark .options {
+  background-color: #45444B;
 }
 
 @media (max-width: 768px) {

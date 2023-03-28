@@ -6,9 +6,15 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
+  background-color: #C1C1C3;
 }
 .container:not(:last-child) {
   margin-right: 16px;
+}
+
+.containerDark {
+  background-color: #45444B;
+  color: #fff;
 }
 
 .containerActive {

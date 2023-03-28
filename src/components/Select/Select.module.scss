@@ -32,6 +32,13 @@
     display: none;
 }
 
+.containerDark {
+    .activeOption {
+        color: $contextual-white-color;
+        background: url(../../images/ArrowSelectActiveDark.svg) right 8px bottom 16px / 24px no-repeat, #45444B;
+    }
+}
+
 .containerActive {
     .activeOption {
         background: url(../../images/ArrowSelectActive.svg) right 8px bottom 16px / 24px no-repeat, $contextual-white-color;
@@ -46,6 +53,17 @@
         border-radius: 4px;
         width: 100%;
         display: block;
+    }
+
+    &.containerDark {
+        .activeOption {
+            color: $contextual-white-color;
+            background: url(../../images/ArrowSelectActiveDark.svg) right 8px bottom 16px / 24px no-repeat, #45444B;
+        }
+
+        .options {
+            background-color: #45444B;
+        }
     }
 }
 
@@ -62,6 +80,7 @@
 @media (max-width: 400px) {
     .container {
         flex: 0 0 100%;
+
         &:not(:last-child) {
             margin: 0 0 32px 0;
         }

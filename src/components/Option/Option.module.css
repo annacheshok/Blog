@@ -12,4 +12,8 @@
 }
 .container:hover {
   cursor: pointer;
+}
+
+.containerDark {
+  color: #fff;
 }/*# sourceMappingURL=Option.module.css.map */

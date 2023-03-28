@@ -9,6 +9,7 @@ interface ISelect {
 }
 
 const Select = ({optionTitles, selectTitle}: ISelect) => {
+    const theme = useAppSelector(store => store.theme.value);
     const { filter, sort} = useAppSelector(store => store.posts);
     const [isActiveSelect, setActiveSelect] = useState(false);
 
@@ -20,6 +21,7 @@ const Select = ({optionTitles, selectTitle}: ISelect) => {
         <div className={`
             ${styles.container}
             ${selectTitle === 'Date' ? styles.containerDate : null}
+            ${theme === 'dark' ? styles.containerDark : null}
             ${isActiveSelect  ? styles.containerActive : null}
             `}>
             <button className={styles.activeOption} onClick={handleChangeValue}>
