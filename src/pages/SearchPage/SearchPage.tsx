@@ -9,6 +9,9 @@ import PageTemplate from '../PageTemplate/PageTemplate';
 const SearchPage = () => {
     const { category, page, count, filter, sort, search } = useAppSelector(store => store.posts);
     const dispatch = useAppDispatch();
+    useEffect(() => {
+        dispatch(changePage(1));
+    }, []);
 
     useEffect(() => {
         if (page > count && count != 0) {

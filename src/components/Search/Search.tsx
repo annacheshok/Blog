@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
-import { changeSearch, getAllPosts, getAllPostsCount } from '../../redux/slices/postsSlice';
+import { changePage, changeSearch, getAllPosts, getAllPostsCount } from '../../redux/slices/postsSlice';
 import styles from './Search.module.scss';
 
 const Search = () => {
@@ -29,6 +29,7 @@ const Search = () => {
             if (inputValue === '' && componentDidMount.current) {
                 dispatch(changeSearch(search));
             }
+            dispatch(changePage(1));
             navigate('/search');
         }
     };

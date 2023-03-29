@@ -36,7 +36,7 @@ const Pagination = () => {
             <div className={styles.pagination}>
                 {(page >= 3 && width > 768) || (page > count / 2 && count >= 3) ? <><PaginationButton numberOfButton={1} /><span className={styles.ellipsis}>...</span></> : null}
                 {pages ? pages.map(page => <PaginationButton key={page} numberOfButton={page} />) : null}
-                {(page <= 3 && count > 3) || (page < count - 1 && width > 768) || (page < count / 2) ? <><span className={styles.ellipsis}>...</span><PaginationButton numberOfButton={count} /></> : null}
+                {(page <= 3 && count > 4) || (page < count - 1 && width > 768) || (page < count / 2) ? <><span className={styles.ellipsis}>...</span><PaginationButton numberOfButton={count} /></> : null}
             </div>
             <button className={`
             ${styles.arrow}
