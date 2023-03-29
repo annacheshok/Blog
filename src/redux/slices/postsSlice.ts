@@ -13,6 +13,7 @@ interface IInitialState {
     count: number,
     filter: string,
     sort: string,
+    search: string
 }
 
 const initialState: IInitialState = {
@@ -21,13 +22,13 @@ const initialState: IInitialState = {
     page: 1,
     count: 0,
     filter: '',
-    sort: 'A-Z'
+    sort: 'A-Z',
+    search: ''
 }
 
 export const getAllPosts = createAsyncThunk(
     "posts/getAllPosts",
-    async ({ category, page, count, filter, sort}: IGetPosts, thunkApi) => {
-        console.log(sort)
+    async ({ category, page, count, filter, sort, search}: IGetPosts, thunkApi) => {
         let url = `/${category === "news" ? "blogs" : category}?`;
         try {
             if (page) {
@@ -41,7 +42,11 @@ export const getAllPosts = createAsyncThunk(
                 if (sort === 'A-Z') url += `_sort=title&`
                 else if (sort === 'Z-A') url += `_sort=summary&`;
             }
-            url += `_limit=12`;
+            if (search) {
+                url += `title_contains=${search}&`;
+            } 
+
+             url += `_limit=12`;
 
             const response = await api.get(url);
             return response.data;
@@ -54,13 +59,13 @@ export const getAllPosts = createAsyncThunk(
 
 export const getAllPostsCount = createAsyncThunk(
     "posts/getAllPostsCount",
-    async ({ category, title, filter }: IGetPosts, thunkApi) => {
+    async ({ category, filter, search }: IGetPosts, thunkApi) => {   
         let url = `/${category === "news" ? "blogs" : category}/count?`;
-        if (title) {
-            url += `title_contains=${title}`;
+        if (search) {
+            url += `title_contains=${search}&`;
         }
         if (filter) {
-            url += `publishedAt_gte=${getDateForFilter(filter)}`;
+            url += `publishedAt_gte=${getDateForFilter(filter)}&`;
         }
         try {
             const response = await api.get(url);
@@ -87,6 +92,9 @@ export const postsSlice = createSlice({
         changeSort: (state, action: PayloadAction<any>) => {
             state.sort = action.payload;
         },
+        changeSearch: (state, action: PayloadAction<any>) => {
+            state.search = action.payload;
+        },
     },
     extraReducers:
         (builder) => {
@@ -99,7 +107,7 @@ export const postsSlice = createSlice({
         }
 })
 
-export const { changeCategory, changePage, changeFilter, changeSort } = postsSlice.actions;
+export const { changeCategory, changePage, changeFilter, changeSort, changeSearch } = postsSlice.actions;
 
 
 const postReducer = postsSlice.reducer;

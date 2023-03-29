@@ -1,0 +1,14 @@
+@import "../../styles/vars.module.scss";
+
+.result {
+    @include font-size(56px, 80px, 700);
+
+    color: $system-secondary-color;
+}
+
+@media (max-width: 768px) {
+    .result {
+        font-size: 32px;
+        line-height: 48px;
+    }
+}

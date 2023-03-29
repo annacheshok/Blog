@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { useAppSelector } from './redux/hook';
 import MainPage from './pages/MainPage/MainPage';
+import Router from './router/Router';
 
 function App() {
   const theme = useAppSelector(store => store.theme.value);
@@ -12,7 +13,7 @@ function App() {
   return (
     <div className={theme === 'light' ? 'wrapper' : `wrapperDark`}>
       <Header />
-      <MainPage/>
+      <Router />
       <Footer />
     </div>
   );

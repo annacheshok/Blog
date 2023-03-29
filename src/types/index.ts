@@ -20,8 +20,7 @@ export interface IGetPosts {
     category: string;
     page: number;
     count: number;
-    title?: string;
-    date?: string;
     filter?: string;
     sort?: string;
+    search?: string;
 }

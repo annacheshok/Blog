@@ -4,7 +4,7 @@ import styles from './PageTemplate.module.scss';
 
 interface IPageTemplate {
     children: React.ReactNode;
-    title: string;
+    title?: string;
 }
 
 const PageTemplate = ({title, children}: IPageTemplate) => {

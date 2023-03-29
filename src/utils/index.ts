@@ -11,7 +11,9 @@ export const findFirstPostOfPage = (page: number, count: number) => {
 };
 
 export const findCountOfPages = (countOfPosts: number) => {
-    return Math.ceil(countOfPosts / 12);
+    console.log(countOfPosts)
+    if (countOfPosts > 0 && countOfPosts <= 12) return 1;
+    else return Math.ceil(countOfPosts / 12);
 };
 
 export const findNumbersInPagination = (page: number, count: number, width: number) => {
