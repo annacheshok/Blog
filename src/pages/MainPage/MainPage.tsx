@@ -5,24 +5,25 @@ import Posts from '../../components/Posts/Posts';
 import Tabs from '../../components/Tabs/Tabs';
 import Pagination from '../../components/Pagination/Pagination';
 import FilterAndSorting from '../../components/FilterAndSorting/FilterAndSorting';
-import { changePage, getAllPosts, getAllPostsCount } from '../../redux/slices/postsSlice';
+import { changePage, changeSearch, getAllPosts, getAllPostsCount } from '../../redux/slices/postsSlice';
 
 const MainPage = () => {
-    const { category, page, filter, count, sort } = useAppSelector(store => store.posts);
+    const { category, page, filter, count, sort, search } = useAppSelector(store => store.posts);
     const dispatch = useAppDispatch();
     const componentDidMount = useRef(false);
     useEffect(() => {
         componentDidMount.current = true;
+        dispatch(changeSearch(''));
+        dispatch(changePage(1));
     }, []);
 
     useEffect (() => {
         if (page > count && count != 0 && componentDidMount.current) {
             dispatch(changePage(count));
-        }
-
-        dispatch(getAllPostsCount({ category: category, page: page, filter: filter, count: count, sort: sort }))
-        dispatch(getAllPosts({category: category, page: page, filter: filter, count: count, sort: sort}))
-    }, [category, page, count, filter, sort]);
+        } 
+        dispatch(getAllPostsCount({ category: category, page: page, filter: filter, count: count, sort: sort, search: search }))
+        dispatch(getAllPosts({ category: category, page: page, filter: filter, count: count, sort: sort, search: search }))
+    }, [category, page, count, filter, sort, search]);
 
     return (
         <PageTemplate title='blog'>

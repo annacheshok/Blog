@@ -14,6 +14,10 @@ const Search = () => {
     useEffect(() => {
         componentDidMount.current = true;
     }, []);
+    
+    useEffect(() => {
+        if (search === '') setInputValue('')
+    }, [search]);
 
     const handleChangeInputSearch = (event: any) => {
         setInputValue(event.target.value);
