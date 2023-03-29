@@ -6,6 +6,10 @@
   color: #313037;
 }
 
+.resultDark {
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .result {
     font-size: 32px;

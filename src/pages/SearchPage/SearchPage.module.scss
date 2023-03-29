@@ -6,6 +6,10 @@
     color: $system-secondary-color;
 }
 
+.resultDark {
+    color: $contextual-white-color;
+}
+
 @media (max-width: 768px) {
     .result {
         font-size: 32px;
