@@ -1,4 +1,4 @@
-import React, {useEffect } from 'react';
+import React, {useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
 import PageTemplate from '../PageTemplate/PageTemplate';
 import Posts from '../../components/Posts/Posts';
@@ -10,15 +10,19 @@ import { changePage, getAllPosts, getAllPostsCount } from '../../redux/slices/po
 const MainPage = () => {
     const { category, page, filter, count, sort } = useAppSelector(store => store.posts);
     const dispatch = useAppDispatch();
+    const componentDidMount = useRef(false);
+    useEffect(() => {
+        componentDidMount.current = true;
+    }, []);
 
     useEffect (() => {
-        if (page > count && count != 0) {
+        if (page > count && count != 0 && componentDidMount.current) {
             dispatch(changePage(count));
         }
 
         dispatch(getAllPostsCount({ category: category, page: page, filter: filter, count: count, sort: sort }))
         dispatch(getAllPosts({category: category, page: page, filter: filter, count: count, sort: sort}))
-    }, [category, page, count, filter, sort])
+    }, [category, page, count, filter, sort]);
 
     return (
         <PageTemplate title='blog'>

@@ -5,9 +5,9 @@ import { changeSearch, getAllPosts, getAllPostsCount } from '../../redux/slices/
 import styles from './Search.module.scss';
 
 const Search = () => {
-    const [inputValue, setInputValue] = useState('');
-    const theme = useAppSelector(state => state.theme.value);
     const { search } = useAppSelector(state => state.posts);
+    const [inputValue, setInputValue] = useState(search);
+    const theme = useAppSelector(state => state.theme.value);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const componentDidMount = useRef(false);
