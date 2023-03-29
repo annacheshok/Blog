@@ -8,7 +8,7 @@ import PageTemplate from '../PageTemplate/PageTemplate';
 
 const SearchPage = () => {
     const { category, page, count, filter, sort, search } = useAppSelector(store => store.posts);
-    const theme = useAppSelector(store => store.theme);
+    const theme = useAppSelector(store => store.theme.value);
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(changePage(1));
@@ -26,7 +26,8 @@ const SearchPage = () => {
         <PageTemplate >
             <div className={`
             ${styles.result}
-            ${styles.resultDark}`}>
+            ${theme === 'dark' ? styles.resultDark : null}`
+            }>
                 {search && count ? `Search results '${search}'` : 'No results found'}
             </div>
             <Posts />
