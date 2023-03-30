@@ -1,0 +1,41 @@
+@import "../../styles/vars.module.scss";
+
+.switch {
+    position: relative;
+    width: 32px;
+    height: 20px;
+    -webkit-appearance: none;
+    outline: none;
+    background-color: $secondary-light-color;
+    border-radius: 10px;
+    transition: .5s;
+    cursor: pointer;
+
+    &:before {
+        @include h-w(16px, 16px);
+
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        border-radius: 50%;
+        background-color: $contextual-white-color;
+        transition: .5s;
+    }
+
+    &:checked {
+        background-color: $system-primary-color;
+
+        &::before {
+            left: 14px;
+        }
+
+        &:hover {
+            background-color: $system-primary2-color;
+        }
+    }
+
+    &:hover {
+        background-color: $secondary-medium-color;
+    }
+}

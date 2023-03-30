@@ -1,0 +1,168 @@
+.container {
+  flex: 0 0 auto;
+  width: 100%;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  height: 96px;
+}
+
+.logo {
+  height: 56px;
+  width: 167px;
+  margin: 0 32px 0 0;
+}
+
+.user {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 34px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 32px;
+}
+
+.userLogo {
+  height: 48px;
+  width: 48px;
+  margin: 0 16px 0 0;
+  border-radius: 4px;
+  background: url(../../images/User.svg) center/24px no-repeat, linear-gradient(#4D0AC7 0%, #912EF2 100%);
+  color: #fff;
+}
+
+.userName {
+  width: 104px;
+  color: #313037;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.login {
+  display: none;
+}
+
+.switch {
+  display: none;
+}
+
+.containerDark {
+  background-color: #46454B;
+}
+.containerDark .userName {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+  .container input[type=search] {
+    display: none;
+  }
+  .container .user {
+    display: none;
+  }
+  .container .burger {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 28px;
+    right: 24px;
+    background: url(../../images/Burger.svg);
+  }
+  .container .logo {
+    height: 44px;
+    width: 133px;
+    position: absolute;
+    top: 18px;
+    left: 24px;
+  }
+  .container.containerActive {
+    height: 100vh;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #fff;
+  }
+  .container.containerActive .burger {
+    background-image: url(../../images/Cancel.svg);
+  }
+  .container.containerActive input[type=search] {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 83px;
+    margin: 80px 0 0;
+    padding: 0 24px;
+    color: #313037;
+    background-color: none;
+    border-top: 1px solid #EAEAEB;
+    border-bottom: 1px solid #EAEAEB;
+    background: url(../../images/Search.svg) right 24px bottom 30px/24px no-repeat;
+  }
+  .container.containerActive input[type=search]:focus, .container.containerActive input[type=search]:hover {
+    background: #EAEAEB;
+  }
+  .container.containerActive input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    background: url(../../images/Cancel.svg);
+    cursor: pointer;
+  }
+  .container.containerActive .login {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    background-color: #EAEAEB;
+    color: #313037;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 30px 0;
+  }
+  .container.containerActive .switch {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 24px;
+    position: absolute;
+    bottom: 84px;
+    left: 0;
+  }
+  .container.containerActive .switchTitle {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #000;
+  }
+  .container.containerDark {
+    background-color: #46454B;
+  }
+  .container.containerDark .burger {
+    background: url(../../images/BurgerDark.svg);
+  }
+  .container.containerDark input[type=search] {
+    background: url(../../images/SearchDark.svg) right 24px bottom 30px/24px no-repeat;
+  }
+  .container.containerDark.containerActive .burger {
+    background: url(../../images/CancelDark.svg);
+  }
+  .container.containerDark.containerActive .switch .switchTitle {
+    color: #C1C1C3;
+  }
+}/*# sourceMappingURL=Header.module.css.map */

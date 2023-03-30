@@ -1,0 +1,29 @@
+.container {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 0 40px 24px;
+  color: #313037;
+}
+.container::first-letter {
+  text-transform: uppercase;
+}
+.container:not(:last-child) {
+  margin: 0 40px 0 0;
+}
+.container:hover {
+  cursor: pointer;
+  color: #6C1BDB;
+}
+
+.containerActive {
+  border-bottom: 2px solid #313037;
+}
+.containerActive.containerDark {
+  border-bottom: 2px solid #fff;
+}
+
+.containerDark {
+  color: #fff;
+}/*# sourceMappingURL=Tab.module.css.map */

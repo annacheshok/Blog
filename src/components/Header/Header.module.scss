@@ -1,0 +1,185 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    height: 96px;
+}
+
+.logo {
+    @include h-w(56px, 167px);
+
+    margin: 0 32px 0 0;
+}
+
+.user {
+    @include font-size(16px, 34px, 600);
+
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 32px;
+}
+
+.userLogo {
+    @include h-w(48px, 48px);
+
+    margin: 0 16px 0 0;
+    border-radius: 4px;
+    background: url(../../images/User.svg) (center / 24px) no-repeat, linear-gradient(#4D0AC7 0%, #912EF2 100%);
+    color: $contextual-white-color;
+}
+
+.userName {
+    width: 104px;
+    color: $system-secondary-color;
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.login {
+    display: none;
+}
+
+.switch {
+    display: none;
+}
+
+.containerDark {
+    background-color: #46454B;
+
+    .userName {
+        color: $contextual-white-color;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+
+        input[type="search"] {
+            display: none;
+        }
+
+        .user {
+            display: none;
+        }
+
+        .burger {
+            @include h-w(24px, 24px);
+
+            position: absolute;
+            top: 28px;
+            right: 24px;
+            background: url(../../images/Burger.svg);
+        }
+
+        .logo {
+            @include h-w(44px, 133px);
+
+            position: absolute;
+            top: 18px;
+            left: 24px;
+        }
+
+        &.containerActive {
+            height: 100vh;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background-color: #fff;
+
+            .burger {
+                background-image: url(../../images/Cancel.svg);
+            }
+
+            input[type="search"] {
+                @include font-size(16px, 24px, 400);
+
+                display: block;
+                flex: 0 0 auto;
+                width: 100%;
+                height: 83px;
+                margin: 80px 0 0;
+                padding: 0 24px;
+                color: $system-secondary-color;
+                background-color: none;
+                border-top: 1px solid $secondary-extralight-color;
+                border-bottom: 1px solid $secondary-extralight-color;
+                background: url(../../images/Search.svg) right 24px bottom 30px / 24px no-repeat;
+
+                &:focus, &:hover {
+                    background: $secondary-extralight-color;
+                }
+
+                &::-webkit-search-cancel-button {
+                    -webkit-appearance: none;
+
+                    @include h-w(24px, 24px);
+
+                    background: url(../../images/Cancel.svg);
+                    cursor: pointer;
+                }
+            }
+
+            .login {
+                @include font-size(16px, 24px, 400);
+
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                background-color: $secondary-extralight-color;
+                color: $system-secondary-color;
+                text-transform: capitalize;
+                text-align: center;
+                padding: 30px 0;
+            }
+
+            .switch {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding: 30px 24px;
+                position: absolute;
+                bottom: 84px;
+                left: 0;
+            }
+
+            .switchTitle {
+                @include font-size(16px, 24px, 400);
+
+                color: #000;
+            }
+        }
+
+        &.containerDark {
+            background-color: #46454B;
+
+            .burger {
+                background: url(../../images/BurgerDark.svg);
+            }
+
+            input[type="search"] {
+                background: url(../../images/SearchDark.svg) right 24px bottom 30px / 24px no-repeat;
+            }
+
+            &.containerActive {
+                .burger {
+                    background: url(../../images/CancelDark.svg);
+                }
+
+                .switch {
+                    .switchTitle {
+                        color: $secondary-light-color;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+.container {
+  max-width: 1150px;
+  padding: 72px 15px 40px;
+  margin: 0 auto;
+  flex: 1 0 auto;
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-size: 56px;
+  line-height: 80px;
+  font-weight: 700;
+  color: #313037;
+  text-align: left;
+}
+.title::first-letter {
+  text-transform: uppercase;
+}
+
+.titleDark {
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 72px 35px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 72px 24px;
+  }
+  .title {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}/*# sourceMappingURL=PageTemplate.module.css.map */

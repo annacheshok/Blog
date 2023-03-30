@@ -1,0 +1,29 @@
+.container {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  background-color: transparent;
+  color: #313037;
+  margin: 0 16px;
+}
+.container:last-child {
+  margin: 0 0 0 16px;
+}
+.container:first-child {
+  margin: 0 16px 0 0;
+}
+.container:hover {
+  color: #6C1BDB;
+}
+
+.containerActive {
+  color: #6C1BDB;
+}
+
+.containerDark {
+  color: #fff;
+}
+.containerDark.containerActive {
+  color: #6C1BDB;
+}/*# sourceMappingURL=PaginationButton.module.css.map */

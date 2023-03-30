@@ -1,0 +1,1 @@
+{"version":3,"sources":["Tab.module.scss","../../styles/vars.module.scss","Tab.module.css"],"names":[],"mappings":"AAEA;ECeI,gCAAA;EACA,eDfmB;ECgBnB,iBDhByB;ECiBzB,gBDjB+B;EAE/B,oBAAA;EACA,cAAA;AECJ;AFCI;EACI,yBAAA;AECR;AFEI;EACI,kBAAA;AEAR;AFGI;EACI,eAAA;EACA,cCjBe;ACgBvB;;AFKA;EACI,gCAAA;AEFJ;AFII;EACI,6BAAA;AEFR;;AFMA;EACI,WCnBqB;ACgBzB","file":"Tab.module.css"}

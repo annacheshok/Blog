@@ -1,0 +1,88 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    position: relative;
+    flex: 0 0 calc(256 / 1120 * 100%);
+}
+
+.containerDate {
+    display: none;
+}
+
+.activeOption {
+    @include font-size(16px, 24px, 500);
+
+    text-align: left;
+    color: $system-secondary-color;
+    padding: 16px 20px;
+    width: 100%;
+    border-radius: 4px;
+    background: url(../../images/ArrowSelect.svg) right 8px bottom 16px / 24px no-repeat, $contextual-white-color;
+
+    span {
+        color: $secondary-medium-color;
+    }
+
+    &:focus {
+        border: 1px solid $system-primary-color;
+    }
+}
+
+.options {
+    display: none;
+}
+
+.containerDark {
+    .activeOption {
+        color: $contextual-white-color;
+        background: url(../../images/ArrowSelectActiveDark.svg) right 8px bottom 16px / 24px no-repeat, #45444B;
+    }
+}
+
+.containerActive {
+    .activeOption {
+        background: url(../../images/ArrowSelectActive.svg) right 8px bottom 16px / 24px no-repeat, $contextual-white-color;
+    }
+
+    .options {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1000;
+        background-color: $contextual-white-color;
+        border-radius: 4px;
+        width: 100%;
+        display: block;
+    }
+
+    &.containerDark {
+        .activeOption {
+            color: $contextual-white-color;
+            background: url(../../images/ArrowSelectActiveDark.svg) right 8px bottom 16px / 24px no-repeat, #45444B;
+        }
+
+        .options {
+            background-color: #45444B;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex: 0 0 45%;
+    }
+
+    .containerDate {
+        display: block;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        flex: 0 0 100%;
+
+        &:not(:last-child) {
+            margin: 0 0 32px 0;
+        }
+    }
+}

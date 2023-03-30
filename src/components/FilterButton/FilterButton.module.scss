@@ -1,0 +1,25 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    padding: 16px 40px;
+    text-transform: capitalize;
+    border-radius: 4px;
+
+    @include font-size(16px, 24px, 500);
+
+    background-color: $secondary-light-color;
+
+    &:not(:last-child) {
+        margin-right: 16px;
+    }
+}
+
+.containerDark {
+    background-color: #45444B;
+    color: $contextual-white-color;
+}
+
+.containerActive {
+    background-color: $system-primary-color;
+    color: $contextual-white-color;
+}
