@@ -10,10 +10,6 @@ const Search = () => {
     const theme = useAppSelector(state => state.theme.value);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const componentDidMount = useRef(false);
-    useEffect(() => {
-        componentDidMount.current = true;
-    }, []);
     
     useEffect(() => {
         if (search === '') setInputValue('')
@@ -26,7 +22,7 @@ const Search = () => {
     const handleSearch = (event: any) => {
         if (event.code === 'Enter') {
             dispatch(changeSearch(inputValue));
-            if (inputValue === '' && componentDidMount.current) {
+            if (inputValue === '') {
                 dispatch(changeSearch(search));
             }
             dispatch(changePage(1));
