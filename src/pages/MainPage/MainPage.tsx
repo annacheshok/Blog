@@ -10,9 +10,8 @@ import { changeCategory, changeFilter, changePage, changeSearch, getAllPosts, ge
 const MainPage = () => {
     const { category, page, filter, count, sort, search } = useAppSelector(store => store.posts);
     const dispatch = useAppDispatch();
-    const componentDidMount = useRef(false);
+    
     useEffect(() => {
-        componentDidMount.current = true;
         dispatch(changeSearch(''));
         dispatch(changeFilter(''));
         dispatch(changePage(1));
@@ -21,7 +20,7 @@ const MainPage = () => {
     }, []);
 
     useEffect (() => {
-        if (page > count && count != 0 && componentDidMount.current) {
+        if (page > count && count != 0) {
             dispatch(changePage(count));
         }
 
