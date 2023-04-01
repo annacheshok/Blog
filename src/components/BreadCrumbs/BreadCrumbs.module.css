@@ -1,0 +1,29 @@
+.container {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #313037;
+}
+
+.breadCrumb {
+  display: inline;
+}
+.breadCrumb:not(:first-child)::before {
+  content: "/";
+  margin: 0 8px;
+}
+.breadCrumb:last-child {
+  color: #98979B;
+}
+.breadCrumb:last-child::before {
+  color: #98979B;
+}
+.breadCrumb:hover {
+  color: #6C1BDB;
+  cursor: pointer;
+}
+
+.containerDark {
+  color: #fff;
+}/*# sourceMappingURL=BreadCrumbs.module.css.map */

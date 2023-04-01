@@ -9,7 +9,7 @@ const Posts = () => {
 
     return (
         <div className={styles.container}>
-            { posts.map((post) => <Post key={post.id} title={post.title} imageUrl={post.imageUrl} publishedAt={post.publishedAt} />)}
+            { posts.map((post) => <Post id={post.id} key={post.id} title={post.title} imageUrl={post.imageUrl} publishedAt={post.publishedAt} />)}
         </div>
     );
 };

@@ -91,3 +91,29 @@ background-color: #F3F3F3;
 .wrapperDark {
   background-color: #313037;
 }
+
+/* .slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+.slick-list {
+  overflow: hidden;
+  padding: 0;
+  margin: 0 -16px;
+}
+
+.slick-slide {
+  display: flex;
+  flex-direction: column;
+}
+
+.slick-slide > div {
+height: 100%;
+}
+
+@media (max-width: 600px) {
+  .slick-slide {
+    width: fit-content;
+  }
+} */

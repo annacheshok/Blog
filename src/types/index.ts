@@ -24,3 +24,8 @@ export interface IGetPosts {
     sort?: string;
     search?: string;
 }
+
+export interface IGetPostById {
+    category: string;
+    id: string | undefined;
+}

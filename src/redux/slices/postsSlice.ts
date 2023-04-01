@@ -1,7 +1,6 @@
-import { IGetPosts } from './../../types/index';
+import { IGetPostById, IGetPosts } from './../../types/index';
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
 import { api } from "../../api";
 import { IPost } from "../../types";
 import { findFirstPostOfPage, findCountOfPages, getDateForFilter } from '../../utils';
@@ -13,7 +12,7 @@ interface IInitialState {
     count: number,
     filter: string,
     sort: string,
-    search: string
+    search: string,
 }
 
 const initialState: IInitialState = {
@@ -23,7 +22,7 @@ const initialState: IInitialState = {
     count: 0,
     filter: '',
     sort: 'A-Z',
-    search: ''
+    search: '',
 }
 
 export const getAllPosts = createAsyncThunk(
@@ -76,6 +75,32 @@ export const getAllPostsCount = createAsyncThunk(
     }
 );
 
+export const getPostById = createAsyncThunk(
+    "posts/getPostById",
+    async ({ category, id }: IGetPostById, thunkApi) => {
+        let url = `/${category === "news" ? "blogs" : category}/${id}`;
+        try {
+            const response = await api.get(url);
+            return response.data;
+        } catch (error: any) {
+            return thunkApi.rejectWithValue({ errorMessage: error.message });
+        }
+    }
+);
+
+export const getLatestPosts = createAsyncThunk(
+    "posts/getLatestPosts",
+    async (category: string, thunkApi) => {
+        let url = `/${category === "news" ? "blogs" : category}?_limit=3`;
+        try {
+            const response = await api.get(url);
+            return response.data;
+        } catch (error: any) {
+            return thunkApi.rejectWithValue({ errorMessage: error.message });
+        }
+    }
+);
+
 export const postsSlice = createSlice({
     name: "posts",
     initialState,
@@ -103,6 +128,10 @@ export const postsSlice = createSlice({
             })
             builder.addCase(getAllPostsCount.fulfilled, (state, action) => {
                state.count = findCountOfPages(action.payload);
+            })
+            builder.addCase(getPostById.fulfilled, (state, action) => {
+            })
+            builder.addCase(getLatestPosts.fulfilled, (state, action) => {
             })
         }
 })

@@ -1,0 +1,11 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    &:hover {
+        stroke: $system-primary-color;
+    }
+}
+
+.containerDark {
+    stroke: $secondary-extralight-color;
+}

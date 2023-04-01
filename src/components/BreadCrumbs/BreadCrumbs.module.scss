@@ -1,0 +1,35 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    @include font-size(16px, 24px, 400);
+
+    color: $system-secondary-color;
+}
+
+.breadCrumb {
+    display: inline;
+
+    &:not(:first-child) {
+        &::before {
+            content: '/';
+            margin: 0 8px;
+        }
+    }
+
+    &:last-child {
+        color: $secondary-medium-color;
+
+        &::before {
+            color: $secondary-medium-color;
+        }
+    }
+
+    &:hover {
+        color: $system-primary-color;
+        cursor: pointer;
+    }
+}
+
+.containerDark {
+    color: $contextual-white-color;
+}
