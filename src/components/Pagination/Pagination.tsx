@@ -23,13 +23,13 @@ const Pagination = () => {
     return (
         <div className={`
          ${styles.container}
-         ${theme == 'dark' ? styles.containerDark : null}
-         ${count == 0 ? styles.containerDisabled : null}
+         ${theme == 'dark' ? styles.containerDark : ''}
+         ${count == 0 ? styles.containerDisabled : ''}
         `}>
             <button className={`
             ${styles.arrow}
             ${styles.arrowPrev}
-            ${page == 1 ? styles.arrowDisabled : null}
+            ${page == 1 ? styles.arrowDisabled : ''}
             `}
                 onClick={handleClickArrowPrev}
             >{width < 768 ? '' : 'Prev'}</button>
@@ -41,7 +41,7 @@ const Pagination = () => {
             <button className={`
             ${styles.arrow}
             ${styles.arrowNext}
-            ${page == count ? styles.arrowDisabled : null}
+            ${page == count ? styles.arrowDisabled : ''}
             `}
                 onClick={handleClickArrowNext}
             >{width < 768 ? '' : 'Next'}</button>

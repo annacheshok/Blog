@@ -26,7 +26,7 @@ const SearchPage = () => {
         <PageTemplate >
             <div className={`
             ${styles.result}
-            ${theme === 'dark' ? styles.resultDark : null}`
+            ${theme === 'dark' ? styles.resultDark : ''}`
             }>
                 {search && count ? `Search results '${search}'` : 'No results found'}
             </div>

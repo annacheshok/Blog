@@ -19,8 +19,8 @@ const PaginationButton = ({ numberOfButton}: IPaginationButton) => {
     return (
         <button className={`
         ${styles.container}
-        ${page === numberOfButton ? styles.containerActive : null}
-        ${theme === 'dark' ? styles.containerDark : null}
+        ${page === numberOfButton ? styles.containerActive : ''}
+        ${theme === 'dark' ? styles.containerDark : ''}
         `}
         onClick={() => handleClickButton(numberOfButton)}>{numberOfButton}</button>
     );

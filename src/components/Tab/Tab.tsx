@@ -19,7 +19,7 @@ const Tab = ({title}: ITab ) => {
     return (
         <div className={`
         ${styles.container}
-        ${category.toLowerCase() === title.toLowerCase() ? styles.containerActive : null}
+        ${category.toLowerCase() === title.toLowerCase() ? styles.containerActive : ''}
         ${theme === 'light' ? '' : styles.containerDark}
         `}
         onClick = {setActive}>{title}</div>

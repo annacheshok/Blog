@@ -14,7 +14,7 @@ const PageTemplate = ({title, children}: IPageTemplate) => {
         <div className={styles.container}>
             <h1 className={`
             ${styles.title}
-            ${theme === 'dark' ? styles.titleDark : null}
+            ${theme === 'dark' ? styles.titleDark : ''}
             `}>{title}</h1>
             <div className={styles.content}>{children}</div>
         </div>

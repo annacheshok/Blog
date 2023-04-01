@@ -19,7 +19,7 @@ const Post = (props: IPost) => {
     return (
         <article className={`
         ${styles.container}
-        ${theme === 'dark' ? styles.containerDark : null}
+        ${theme === 'dark' ? styles.containerDark : ''}
         `}
         onClick={() => navigate(`/${category}/${props.id}`)}
         >

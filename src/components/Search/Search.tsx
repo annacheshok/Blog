@@ -1,10 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
-import { changePage, changeSearch, getAllPosts, getAllPostsCount } from '../../redux/slices/postsSlice';
+import { changePage, changeSearch } from '../../redux/slices/postsSlice';
 import styles from './Search.module.scss';
 
-const Search = () => {
+interface IOpenMenu {
+    isOpenMenu: boolean;
+    setOpenMenu(isOpenMenu: boolean): void; 
+}
+
+const Search = ({isOpenMenu, setOpenMenu}: IOpenMenu) => {
     const { search } = useAppSelector(state => state.posts);
     const [inputValue, setInputValue] = useState(search);
     const theme = useAppSelector(state => state.theme.value);
@@ -26,6 +31,7 @@ const Search = () => {
                 dispatch(changeSearch(search));
             }
             dispatch(changePage(1));
+            if(isOpenMenu) setOpenMenu(!isOpenMenu);
             navigate('/search');
         }
     };
@@ -35,7 +41,7 @@ const Search = () => {
             type='search'
             className={`
         ${styles.search}
-        ${theme === 'dark' ? styles.searchDark : null}
+        ${theme === 'dark' ? styles.searchDark : ''}
         `}
             value={inputValue}
             onKeyDown={handleSearch}

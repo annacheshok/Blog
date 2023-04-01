@@ -38,8 +38,7 @@ export const getAllPosts = createAsyncThunk(
                 url += `publishedAt_gte=${getDateForFilter(filter)}&`;
             }
             if (sort) {
-                if (sort === 'A-Z') url += `_sort=title&`
-                else if (sort === 'Z-A') url += `_sort=summary&`;
+               url += `_sort=title&`
             }
             if (search) {
                 url += `title_contains=${search}&`;
@@ -48,7 +47,8 @@ export const getAllPosts = createAsyncThunk(
              url += `_limit=12`;
 
             const response = await api.get(url);
-            return response.data;
+            if (sort === 'Z-A') return response.data.reverse();
+            else return response.data;
 
         } catch (error: any) {
             return thunkApi.rejectWithValue({ errorMessage: error.message });

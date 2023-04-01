@@ -20,9 +20,9 @@ const Select = ({optionTitles, selectTitle}: ISelect) => {
     return (
         <div className={`
             ${styles.container}
-            ${selectTitle === 'Date' ? styles.containerDate : null}
-            ${theme === 'dark' ? styles.containerDark : null}
-            ${isActiveSelect  ? styles.containerActive : null}
+            ${selectTitle === 'Date' ? styles.containerDate : ''}
+            ${theme === 'dark' ? styles.containerDark : ''}
+            ${isActiveSelect  ? styles.containerActive : ''}
             `}>
             <button className={styles.activeOption} onClick={handleChangeValue}>
             <span>{selectTitle}: </span>

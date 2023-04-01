@@ -23,8 +23,8 @@ const FilterButton = ({ title, activeFilterButton, setActiveFilterButton }: IFil
         <button 
         className={`
         ${styles.container}
-        ${activeFilterButton === title ? styles.containerActive : null}
-        ${theme === 'dark' ? styles.containerDark : null}
+        ${activeFilterButton === title ? styles.containerActive : ''}
+        ${theme === 'dark' ? styles.containerDark : ''}
         `}
         onClick={handleClickButton}>{title}</button>
     );
