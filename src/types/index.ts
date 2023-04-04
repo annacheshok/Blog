@@ -29,3 +29,10 @@ export interface IGetPostById {
     category: string;
     id: string | undefined;
 }
+
+export interface IUser {
+    id?: number;
+    name: string;
+    email: string;
+    password: string;
+}

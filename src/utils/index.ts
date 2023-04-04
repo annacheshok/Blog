@@ -47,3 +47,9 @@ export const findNumbersInPagination = (page: number, count: number, width: numb
 export const getDateForFilter = (categoryDate: any) => {
     return moment().subtract(1, categoryDate).format().slice(0, 10).replace('/', '-');
 };
+
+export const getNameAndSurnameOfUser = (name: string | undefined) => {
+    if (name) return name.split('');
+};
+
+

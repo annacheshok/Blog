@@ -1,0 +1,132 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    position: relative;
+    margin: 72px auto 0;
+    padding: 40px;
+    width: 628px;
+    border-radius: 16px;
+    background-color: $contextual-white-color;
+    color: $system-secondary-color;
+}
+
+.input {
+    & .label {
+        @include font-size(16px, 20px, 600);
+    }
+
+    input {
+        width: 100%;
+        margin: 8px 0 0;
+        padding: 18px 20px;
+        border: 1px solid $secondary-light-color;
+        border-radius: 4px;
+
+        @include font-size(16px, 20px, 400);
+
+        &:hover {
+            border-color: $system-primary-color;
+        }
+    }
+
+    &:not(:last-child) {
+        margin: 0 0 40px;
+    }
+
+    & .error {
+        display: none;
+    }
+}
+
+.text {
+    margin: 16px 0 0;
+}
+
+.button {
+    margin: 48px 0 0;
+    width: 100%;
+    padding: 16px;
+    background-color: $system-primary-color;
+    border-radius: 4px;
+
+    @include font-size(18px, 24px, 600);
+
+    color: $contextual-white-color;
+}
+
+.footer {
+    max-width: 243px;
+    color: #8D8E97;
+    margin: 24px auto 0;
+
+    p {
+        display: inline;
+
+        span {
+            color: $system-primary-color;
+        }
+    }
+}
+
+.containerDark {
+    background-color: #46454B;
+
+    .input {
+        color: $contextual-white-color;
+
+        input {
+            background-color: #59585D;
+            color: $contextual-white-color;
+            border: 1px solid transparent;
+        }
+    }
+
+    .text {
+        color: $contextual-white-color;
+    }
+}
+
+.needValidation {
+    .input {
+        input {
+            &:invalid {
+                border-color: $contextual-error-color;
+
+                & + .error {
+                    display: block;
+                    color: $contextual-error-color;
+                }
+            }
+        }
+
+        &:not(:last-child) {
+            margin: 0 0 40px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 668px;
+        width: 100%;
+        padding: 24px;
+        margin: 32px 0 0;
+    }
+
+    .input {
+        &:not(:last-child) {
+            margin: 0 0 32px;
+        }
+    }
+
+    .button {
+        margin: 36px 0 0;
+    }
+
+    .footer {
+        @include font-size(14px, 20px, 400);
+        span {
+            font-weight: 500;
+        }
+    }
+}
