@@ -43,7 +43,7 @@ const SignIn = ({ isOpenMenu }: IOpenMenu) => {
             ${styles.logo}
             ${isAuthorized ? styles.logoDisabled : ''}
             `}>
-                {isAuthorized && getUserName ? `${getUserName[0][0].toUpperCase()} ${getUserName[1][0].toUpperCase()}` : ''}</div>
+                {isAuthorized && getUserName ? getUserName : ''}</div>
             <div className={styles.name}>{isAuthorized ? `${user?.name}` : 'Sign in'}</div>
             <img src={LogOut} onClick={handleLogOut}
                 className=
