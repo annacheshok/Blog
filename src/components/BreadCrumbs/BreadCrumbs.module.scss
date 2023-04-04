@@ -1,6 +1,7 @@
 @import "../../styles/vars.module.scss";
 
 .container {
+    margin: 32px 0 0;
     @include font-size(16px, 24px, 400);
 
     color: $system-secondary-color;
@@ -22,6 +23,10 @@
         &::before {
             color: $secondary-medium-color;
         }
+    }
+
+    &:only-child {
+        color: $system-secondary-color;
     }
 
     &:hover {

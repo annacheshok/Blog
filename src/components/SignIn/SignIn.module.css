@@ -1,0 +1,66 @@
+.container {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 34px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 32px;
+}
+
+.containerDark .name {
+  color: #fff;
+}
+
+.logo {
+  height: 48px;
+  width: 48px;
+  margin: 0 16px 0 0;
+  border-radius: 4px;
+  background: url(../../images/User.svg) center/24px no-repeat, linear-gradient(#4D0AC7 0%, #912EF2 100%);
+  color: #fff;
+}
+
+.logoDisabled {
+  background: linear-gradient(#4D0AC7 0%, #912EF2 100%);
+  padding: 7px 10px 10px;
+}
+
+.name {
+  width: 104px;
+  color: #313037;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.logOut {
+  height: 48px;
+  width: 48px;
+}
+
+.logOutDisabled {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+  .containerDark .name {
+    color: #313037;
+  }
+  .containerVisible {
+    display: block;
+    order: -1;
+    margin: 80px 0 -80px;
+    width: 100%;
+    background-color: #EAEAEB;
+  }
+  .containerVisible .logoDisabled {
+    display: inline-block;
+    margin: 18px 16px 18px 24px;
+  }
+  .containerVisible .name {
+    display: inline;
+  }
+}/*# sourceMappingURL=SignIn.module.css.map */

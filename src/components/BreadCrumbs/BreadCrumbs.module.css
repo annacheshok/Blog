@@ -1,4 +1,5 @@
 .container {
+  margin: 32px 0 0;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -18,6 +19,9 @@
 }
 .breadCrumb:last-child::before {
   color: #98979B;
+}
+.breadCrumb:only-child {
+  color: #313037;
 }
 .breadCrumb:hover {
   color: #6C1BDB;

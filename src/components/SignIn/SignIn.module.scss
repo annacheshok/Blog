@@ -1,0 +1,73 @@
+@import "../../styles/vars.module.scss";
+
+.container {
+    @include font-size(16px, 34px, 600);
+
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 32px;
+}
+
+.containerDark {
+    .name {
+        color: $contextual-white-color;
+    }
+}
+
+.logo {
+    @include h-w(48px, 48px);
+
+    margin: 0 16px 0 0;
+    border-radius: 4px;
+    background: url(../../images/User.svg) (center / 24px) no-repeat, linear-gradient(#4D0AC7 0%, #912EF2 100%);
+    color: $contextual-white-color;
+}
+
+.logoDisabled {
+    background: linear-gradient(#4D0AC7 0%, #912EF2 100%);
+    padding: 7px 10px 10px;
+}
+
+.name {
+    width: 104px;
+    color: $system-secondary-color;
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.logOut {
+    @include h-w(48px, 48px);
+}
+
+.logOutDisabled {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: none;
+    }
+
+    .containerDark {
+        .name {
+            color: $system-secondary-color;
+        }
+    }
+
+    .containerVisible {
+        display: block;
+        order: -1;
+        margin: 80px 0 -80px;
+        width: 100%;
+        background-color: $secondary-extralight-color;
+
+        .logoDisabled {
+            display: inline-block;
+            margin: 18px 16px 18px 24px;
+        }
+
+        .name {
+            display: inline;
+        }
+    }
+}

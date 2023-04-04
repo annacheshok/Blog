@@ -150,6 +150,9 @@
     font-weight: 400;
     color: #000;
   }
+  .container.containerActive.containerAuth {
+    height: 103vh;
+  }
   .container.containerDark {
     background-color: #46454B;
   }

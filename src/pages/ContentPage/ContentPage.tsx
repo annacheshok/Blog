@@ -8,6 +8,7 @@ import { IPost } from '../../types';
 import PageTemplate from '../PageTemplate/PageTemplate';
 import Slider from '../../components/Slider/Slider';
 import Icon from '../../components/Icon/Icon';
+import { icons } from '../../constants';
 
 const ContentPage = () => {
     const category = useAppSelector(store => store.posts.category);
@@ -24,8 +25,8 @@ const ContentPage = () => {
             title: `Post ${id}`,
             link: `/${category}/${id}`
         },
-    ]
-    const icons = ["facebook", "twitter", "more-horizontal"];
+    ];
+
     useEffect(() => {
         (async () => {
             const post = await dispatch(getPostById({ category: category, id: id }));
