@@ -10,7 +10,7 @@ const SignInPage = () => {
             link: '/',
             title: 'Back to home'
         }
-    ]
+    ];
     return (
         <PageTemplate title={'Sign In'}>
             <BreadCrumbs breadCrumbs={breadCrumbs}/>

@@ -20,11 +20,11 @@ const Header = () => {
     };
 
     const handleLogOut = () => {
-        if(!isAuthorized) navigate('/signin')
+        if(!isAuthorized) navigate('/signin');
         else {
         localStorage.clear();
         dispatch(setAuthorized(false));
-        navigate('/')
+        navigate('/');
         }
         setOpenMenu(!isOpenMenu);
     }

@@ -21,13 +21,13 @@ const FormSignIn = () => {
         (async () => {
             const users = await dispatch(getUsers());
             setUsers(users.payload);
-            dispatch(setAuthorized(false))
+            dispatch(setAuthorized(false));
         })()
-    }, [])
+    }, []);
 
     const handleSubmitForm = (event: React.SyntheticEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const user = users.find((user: IUser) => user.email === form.email && user.password === form.password)
+        const user = users.find((user: IUser) => user.email === form.email && user.password === form.password);
         if (user) {
             dispatch(setAuthorized(true));
             localStorage.setItem('user', JSON.stringify(user));

@@ -9,7 +9,7 @@ const Modal = () => {
 
     const handleCloseModal = () => {
         dispatch(changeVisible());
-    }
+    };
 
     if (!visible) return null;
     return (

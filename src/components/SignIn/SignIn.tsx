@@ -18,10 +18,10 @@ const SignIn = ({ isOpenMenu }: IOpenMenu) => {
     const navigate = useNavigate();
     const userLocaleStorage = localStorage.getItem('user');
     const [user, setUser] = useState<IUser | undefined>(undefined);
-    
+
     useEffect(() => {
-        setUser(userLocaleStorage ? JSON.parse(userLocaleStorage) : undefined)
-    }, [userLocaleStorage, isAuthorized])
+        setUser(userLocaleStorage ? JSON.parse(userLocaleStorage) : undefined);
+    }, [userLocaleStorage])
 
     const handleLogOut = () => {
         localStorage.clear();
@@ -42,7 +42,7 @@ const SignIn = ({ isOpenMenu }: IOpenMenu) => {
             ${styles.logo}
             ${isAuthorized ? styles.logoDisabled : ''}
             `}>
-                {getUserName ? `${getUserName[0]} ${getUserName[1]}` : ''}</div>
+             {isAuthorized && getUserName ? `${getUserName[0]} ${getUserName[1]}` : ''}</div>
             <div className={styles.name}>{isAuthorized ? `${user?.name}` : 'Sign in'}</div>
             <img src={LogOut} onClick={handleLogOut}
                 className=
