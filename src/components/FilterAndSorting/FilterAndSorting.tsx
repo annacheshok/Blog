@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import FilterButton from '../FilterButton/FilterButton';
 import Select from '../Select/Select';
 import styles from './FilterAndSorting.module.scss';
-
-const filterCategories = ['Day', 'Week', 'Month', 'Year'];
-const sortCategories = ['A-Z', 'Z-A'];
+import { filterCategories, sortCategories } from '../../constants';
 
 const FilterAndSorting = () => {
     const [activeFilterButton, setActiveFilterButton] = useState('');

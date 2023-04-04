@@ -6,7 +6,6 @@ import Tabs from '../../components/Tabs/Tabs';
 import Pagination from '../../components/Pagination/Pagination';
 import FilterAndSorting from '../../components/FilterAndSorting/FilterAndSorting';
 import { changeCategory, changeFilter, changePage, changeSearch, getAllPosts, getAllPostsCount } from '../../redux/slices/postsSlice';
-import { setAuthorized } from '../../redux/slices/registrationSlice';
 
 const MainPage = () => {
     const { category, page, filter, count, sort, search } = useAppSelector(store => store.posts);
