@@ -49,7 +49,7 @@ export const getDateForFilter = (categoryDate: any) => {
 };
 
 export const getNameAndSurnameOfUser = (name: string | undefined) => {
-    if (name) return name.split('');
+    if (name) return name.split(' ');
 };
 
 
