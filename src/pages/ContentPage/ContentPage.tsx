@@ -31,7 +31,7 @@ const ContentPage = () => {
             const post = await dispatch(getPostById({ category: category, id: id }));
             setPost(post.payload);
         })()
-    }, [])
+    }, [id])
     return (
         <PageTemplate>
             <BreadCrumbs breadCrumbs={breadCrumbs} />
