@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { authApi } from "../../api";
+import { IUser } from "../../types";
 
 interface IInitialState {
     isAuthorized: boolean;
@@ -23,7 +24,6 @@ export const getUsers = createAsyncThunk(
     }
 );
 
-
 export const registrationSlice = createSlice({
     name: "posts",
     initialState,
@@ -34,7 +34,7 @@ export const registrationSlice = createSlice({
     },
     extraReducers:
         (builder) => {
-            builder.addCase(getUsers.fulfilled, (state, action) => {
+            builder.addCase(getUsers.fulfilled, (state, action: PayloadAction<IUser[]>) => {
             })
         }
 })

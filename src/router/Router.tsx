@@ -5,6 +5,7 @@ import MainPage from '../pages/MainPage/MainPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import { useAppSelector } from '../redux/hook';
 import SignInPage from '../pages/SignInPage/SignInPage';
+import SignUpPage from '../pages/SignUpPage/SignUpPage';
 
 const Router = () => {
     const category = useAppSelector(store => store.posts.category);
@@ -16,6 +17,7 @@ const Router = () => {
             </Route>
             <Route path='/search' element={<SearchPage />} />
             <Route path='/signin' element={<SignInPage />} />
+            <Route path='/signup' element={<SignUpPage />} />
         </Routes>
     );
 };

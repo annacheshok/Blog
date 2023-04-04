@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import styles from './FormSignIn.module.scss';
+import styles from './FormSignUp.module.scss';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
-import { setAuthorized, getUsers } from '../../redux/slices/registrationSlice';
 import { useNavigate } from 'react-router-dom';
+import { authApi } from '../../api';
 import { IUser } from '../../types';
+import { getUsers, setAuthorized } from '../../redux/slices/registrationSlice';
 import { changeVisible } from '../../redux/slices/modalSlice';
 
-const FormSignIn = () => {
+const FormSignUp = () => {
     const theme = useAppSelector(store => store.theme.value);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const [users, setUsers] = useState<IUser[]>([]);
+    const [isValidForm, setValidForm] = useState(true);
     const [form, setForm] = useState({
+        name: '',
         email: '',
         password: '',
     });
-    const [isValidForm, setFormValid] = useState(true);
-
+    const [users, setUsers] = useState<IUser[]>([]);
+    
     useEffect(() => {
         (async () => {
             const users = await dispatch(getUsers());
@@ -24,30 +26,41 @@ const FormSignIn = () => {
             dispatch(setAuthorized(false));
         })()
     }, []);
-
-    const handleSubmitForm = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    
+    const handleSubmitForm = (event: any) => {
         event.preventDefault();
-        const user = users.find((user: IUser) => user.email === form.email && user.password === form.password);
-        if (user) {
-            dispatch(setAuthorized(true));
-            localStorage.setItem('user', JSON.stringify(user));
-            navigate('/');
-        } else {
-            dispatch(changeVisible());
-            setFormValid(false);
+        if (event.target.checkValidity()) {
+            setValidForm(true);
+            const user = users.find((user: IUser) => user.email === form.email);
+            if (!user) {
+                authApi.post('/user', form);
+                localStorage.setItem('user', JSON.stringify(form));
+                dispatch(setAuthorized(true));
+                navigate('/');
+            } else {
+                dispatch(changeVisible());
+            }
+        }
+         else {
+            setValidForm(false);
         }
     };
 
     return (
-        <form noValidate={true} onSubmit={handleSubmitForm} 
-        className=
-        {`
+        <form noValidate={true} onSubmit={handleSubmitForm}
+            className=
+            {`
         ${styles.container}
         ${!isValidForm ? styles.needValidation : ''}
         ${theme === 'dark' ? styles.containerDark : ''}
         `
-        }>
+            }>
             <div>
+                <div className={styles.input}>
+                    <div className={styles.label}>Name</div>
+                    <input type="text" placeholder="Your name" value={form.name} required onChange={(event: any) => setForm({ ...form, name: event.target.value })} />
+                    <div className={styles.error}>Error email</div>
+                </div>
                 <div className={styles.input}>
                     <div className={styles.label}>Email</div>
                     <input type="email" placeholder="Your email" value={form.email} required minLength={6} onChange={(event: any) => setForm({ ...form, email: event.target.value })} />
@@ -59,14 +72,9 @@ const FormSignIn = () => {
                     <div className={styles.error}>Error password</div>
                 </div>
             </div>
-            <div className={styles.text}>Forgot password?</div>
-            <button type='submit' className={styles.button}>Sign In</button>
-            <div className={styles.footer}>
-                <p>Don’t have an account? </p>
-                <p onClick={() => navigate('/signup')}><span>Sign Up</span></p>
-            </div>
+            <button type='submit' className={styles.button}>Sign Up</button>
         </form>
     );
 };
 
-export default FormSignIn;
+export default FormSignUp;

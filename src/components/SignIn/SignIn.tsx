@@ -21,6 +21,7 @@ const SignIn = ({ isOpenMenu }: IOpenMenu) => {
 
     useEffect(() => {
         setUser(userLocaleStorage ? JSON.parse(userLocaleStorage) : undefined);
+        if (userLocaleStorage) dispatch(setAuthorized(true));
     }, [userLocaleStorage])
 
     const handleLogOut = () => {
@@ -42,7 +43,7 @@ const SignIn = ({ isOpenMenu }: IOpenMenu) => {
             ${styles.logo}
             ${isAuthorized ? styles.logoDisabled : ''}
             `}>
-             {isAuthorized && getUserName ? `${getUserName[0]} ${getUserName[1]}` : ''}</div>
+                {isAuthorized && getUserName ? `${getUserName[0].toUpperCase()} ${getUserName[1].toUpperCase()}` : ''}</div>
             <div className={styles.name}>{isAuthorized ? `${user?.name}` : 'Sign in'}</div>
             <img src={LogOut} onClick={handleLogOut}
                 className=

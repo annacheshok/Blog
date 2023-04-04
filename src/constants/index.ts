@@ -8,3 +8,11 @@ export const breadCrumbsSignIn = [
         title: 'Back to home'
     }
 ];
+export const modalSignIn = {
+    title: "User not found",
+    content: "Try to input another email or password. If you don't have an account,you can sign up.",
+};
+export const modalSignUp = {
+    title: "User exists.",
+    content: "Try to input another email or Sign In.",
+};
