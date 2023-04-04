@@ -44,7 +44,7 @@ const Pagination = () => {
             ${page == count ? styles.arrowDisabled : ''}
             `}
                 onClick={handleClickArrowNext}
-            >{width < 768 ? '' : 'Next'}</button>
+            >{width <= 768 ? '' : 'Next'}</button>
         </div>
     );
 };

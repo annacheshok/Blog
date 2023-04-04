@@ -25,15 +25,18 @@ const FormSignIn = () => {
         })()
     }, []);
 
-    const handleSubmitForm = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    const handleSubmitForm = (event: any) => {
         event.preventDefault();
-        const user = users.find((user: IUser) => user.email === form.email && user.password === form.password);
-        if (user) {
-            dispatch(setAuthorized(true));
-            localStorage.setItem('user', JSON.stringify(user));
-            navigate('/');
+        if (event.target.checkValidity()) {
+            const user = users.find((user: IUser) => user.email === form.email && user.password === form.password);
+            if (user) {
+                dispatch(setAuthorized(true));
+                localStorage.setItem('user', JSON.stringify(user));
+                navigate('/');
+            } else {
+                dispatch(changeVisible());
+            }
         } else {
-            dispatch(changeVisible());
             setFormValid(false);
         }
     };
