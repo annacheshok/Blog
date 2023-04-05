@@ -62,6 +62,7 @@
 }
 .footer p span {
   color: #6C1BDB;
+  cursor: pointer;
 }
 
 .containerDark {
